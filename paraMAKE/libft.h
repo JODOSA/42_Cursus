@@ -6,7 +6,7 @@
 /*   By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 18:47:35 by joadomin          #+#    #+#             */
-/*   Updated: 2023/12/23 19:16:25 by joadomin         ###   ########.fr       */
+/*   Updated: 2023/12/26 17:25:21 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ size_t	ft_strlen(const char *s);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strchr(const char *s, int c);
 
 #endif

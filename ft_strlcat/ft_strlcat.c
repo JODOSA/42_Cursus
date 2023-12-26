@@ -28,8 +28,9 @@ size_t  ft_strlcat(char *dst, const char *src, size_t dstsize)
     printf("ds %zu\n", ds);
     printf("sr %zu\n", sr);
 
-    if (dstsize <= ds)
+    if (dstsize < ds)
         return(sr + dstsize);
+        
      while(src[i] != '\0'){
         dst[ds] = src[i];
         ds++;

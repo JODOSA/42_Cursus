@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pru_strchr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joadomin <joadomin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 13:57:36 by joadomin          #+#    #+#             */
-/*   Updated: 2023/12/26 19:57:19 by joadomin         ###   ########.fr       */
+/*   Created: 2023/12/26 13:07:58 by joadomin          #+#    #+#             */
+/*   Updated: 2023/12/26 20:00:28 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-int main()
+char	*ft_strchr(const char *s, int c)
 {
-	char s[] = "tripouille";
-	char *pos = strchr(s, 't' + 256);
+	char	*punts;
 
-	printf("pos = %s\n", pos);
-
-	if (pos != NULL)
+	while (c > 256)
 	{
-		printf("La primera se encuentra en la posición: %ld\n", pos - s);
+		c = c - 256;
 	}
-	else
+	punts = (char *)s;
+	while (*punts)
 	{
-		printf("La letra no se encuentra en la cadena.\n");
+		if (*punts == c)
+		{
+			return (punts);
+		}
+		punts++;
 	}
-
-	return (0);
+	if (c == '\0')
+	{
+		return (punts);
+	}
+	return (NULL);
 }
