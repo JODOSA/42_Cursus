@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joadomin <joadomin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 13:07:58 by joadomin          #+#    #+#             */
-/*   Updated: 2023/12/27 06:57:30 by joadomin         ###   ########.fr       */
+/*   Created: 2023/12/27 07:55:03 by joadomin          #+#    #+#             */
+/*   Updated: 2023/12/27 09:14:17 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*punts;
+	char	*endpunts;
 
+	endpunts = NULL;
 	while (c >= 256)
-	{
 		c = c - 256;
-	}
 	if (c == 0)
-	{
 		c = '\0';
-	}
 	punts = (char *)s;
 	while (*punts)
 	{
 		if (*punts == c)
-		{
-			return (punts);
-		}
+			endpunts = punts;
 		punts++;
 	}
 	if (c == '\0')
-	{
 		return (punts);
-	}
+	if (*punts == '\0')
+		return (endpunts);
 	return (NULL);
 }

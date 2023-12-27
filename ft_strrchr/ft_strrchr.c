@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joadomin <joadomin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 13:07:58 by joadomin          #+#    #+#             */
-/*   Updated: 2023/12/27 06:54:00 by joadomin         ###   ########.fr       */
+/*   Created: 2023/12/27 07:23:22 by joadomin          #+#    #+#             */
+/*   Updated: 2023/12/27 09:09:16 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "libft.h"
 #include <stdio.h>
 
-char    *ft_strchr(const char *s, int c)
+char    *ft_strrchr(const char *s, int c)
 {
     char *punts;
+    char *endpunts=NULL;
 
     printf("s = %s\n", s);
+    printf("c = %d\n", c);
 
     while (c >= 256)
     {
         c = c - 256;
     }
-    printf("c = %d\n", c);
     if (c == 0)
     {
         c = '\0';
@@ -34,26 +35,28 @@ char    *ft_strchr(const char *s, int c)
     {
         if (*punts == c)
         {
-            return (punts);
+            endpunts = punts;
         }
         punts++;
     }
-
     if (c == '\0')
     {
         return (punts);
     }
+    if (*punts == '\0')
+    {
+        return (endpunts);
+    }
 
     return (NULL);
-
 }
 int main()
 {
-    char mystr[] = "tripouille";
-    int ch = 't' + 256;
+    char mystr[] = "bonjour";
+    int ch = 's';
     char *pos;
 
-    pos = ft_strchr(mystr, ch);
+    pos = ft_strrchr(mystr, ch);
 
     printf("pos = %s\n", pos);
 

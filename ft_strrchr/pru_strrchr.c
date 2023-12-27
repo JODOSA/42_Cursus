@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   pru_strrchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joadomin <joadomin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 13:07:58 by joadomin          #+#    #+#             */
-/*   Updated: 2023/12/27 06:57:30 by joadomin         ###   ########.fr       */
+/*   Created: 2023/12/27 07:20:09 by joadomin          #+#    #+#             */
+/*   Updated: 2023/12/27 07:22:30 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+int main()
 {
-	char	*punts;
+	char s[] = "tritotilte";
+	char *pos = strrchr(s, 't');
 
-	while (c >= 256)
+	printf("pos = %s\n", pos);
+
+	if (pos != NULL)
 	{
-		c = c - 256;
+		printf("La última coincidencia se encuentra en la posición: %ld\n", pos - s);
 	}
-	if (c == 0)
+	else
 	{
-		c = '\0';
+		printf("La letra no se encuentra en la cadena.\n");
 	}
-	punts = (char *)s;
-	while (*punts)
-	{
-		if (*punts == c)
-		{
-			return (punts);
-		}
-		punts++;
-	}
-	if (c == '\0')
-	{
-		return (punts);
-	}
-	return (NULL);
+
+	return (0);
 }
