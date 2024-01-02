@@ -1,27 +1,69 @@
-LIB = ar rcs
-RM = rm -f
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/29 12:06:41 by joadomin          #+#    #+#              #
+#    Updated: 2023/12/30 16:52:33 by joadomin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = gcc
-CCFLAGS = -Wall -Werror -Wextra
-
+#Name or the program
 NAME = libft.a
-SRC = ft_isalpha.c ft_isdigit.c ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_memcpy.c ft_memset.c ft_strlcpy.c ft_strlen.c ft_toupper.c ft_tolower.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c
-OBJ = $(SRC:.c=.o)
-INCLUDE = libft.h
 
+#All thw files of the functions
+
+SRCS =	ft_isalpha.c \
+		ft_isdigit.c \
+		ft_bzero.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_memcpy.c \
+		ft_memset.c \
+		ft_strlcpy.c \
+		ft_strlen.c \
+		ft_toupper.c \
+		ft_tolower.c \
+		ft_strlcat.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strncmp.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_strnstr.c \
+		ft_atoi.c \
+
+#Convert functions (*.c) to objets (*.o)
+OBJS = $(SRCS:.c=.o)
+
+#The command compile the functions
+CC = gcc
+
+#The compilations flags
+CFLAGS = -Wall -Wextra -Werror
+
+#Rules ---------------------------------------------------------------------------------
+
+#You enter make or make all it will carry out these instructions
+#It will compile the functions and create the library with ar, c->create r->replace s->make 
 all: $(NAME)
 
-$(NAME): $(OBJ) 
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
+$(NAME): $(OBJS) 
+		ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
-		$(CC) $(CFLAGS) -c -o $@ $<
-
+#Delete all *.o files created in the process
 clean:
-		$(RM) $(OBJ)
+	rm -rf $(OBJS)
 
+#First delete the *.o and then delete the program
 fclean: clean
-		$(RM) $(NAME)
+	rm -f $(NAME)
 
+#It will delete the program an the *.o and then run the process again
 re: fclean all
+
+.PHONY: all clean fclean re
+

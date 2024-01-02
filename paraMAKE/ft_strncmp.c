@@ -6,7 +6,7 @@
 /*   By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 13:07:55 by joadomin          #+#    #+#             */
-/*   Updated: 2023/12/27 22:46:17 by joadomin         ###   ########.fr       */
+/*   Updated: 2023/12/30 13:33:39 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	dif;
-	int	i;
+	int		dif;
+	size_t	i;
 
 	dif = 0;
 	i = 0;
