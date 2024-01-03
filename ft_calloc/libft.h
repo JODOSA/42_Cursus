@@ -6,7 +6,7 @@
 /*   By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 18:47:35 by joadomin          #+#    #+#             */
-/*   Updated: 2024/01/03 18:43:48 by joadomin         ###   ########.fr       */
+/*   Updated: 2023/12/31 13:24:56 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,5 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
-void	*ft_calloc(size_t num_items, size_t size);
-char	*ft_strdup(const char *s);
 
 #endif
