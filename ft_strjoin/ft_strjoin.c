@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joadomin <joadomin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 18:12:36 by joadomin          #+#    #+#             */
-/*   Updated: 2024/01/04 11:55:35 by joadomin         ###   ########.fr       */
+/*   Created: 2024/01/04 19:10:52 by joadomin          #+#    #+#             */
+/*   Updated: 2024/01/04 19:55:39 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,35 @@
 #include <string.h>
 #include "libft.h"
 
-char    *ft_strdup(const char *s)
+char    *ft_strjoin(char const *s1, char const *s2)
 {
-    int size;
-    char *mem;
+    int len1;
+    int len2;
+    char    *s3;
 
-    //size = strlen(s);
-    size = ft_strlen(s);
-    mem = malloc(size + 1);
-    if (mem == NULL)
-    {
+    if (!s1 || !s2)
         return (NULL);
-    }
-    //strcpy(mem, s);
-    ft_strlcpy(mem, s, mem);
-    return (mem); 
+    len1 = ft_strlen(s1);
+    len2 = ft_strlen(s2);
+    s3 = malloc(len1 + len2 + 1);
+    ft_strlcpy(s3, s1, len1);
+    ft_strlcpy(s3 + len1, s2, len2);
+    s3[len1 + len2 + 1] = '\0';
+    return (s3);
 }
 
 int main ()
 {
-    char str[] = "Hola mundo";
-    char *pstr;
+    char str1[] = "Hola ";
+    char str2[] = "mundo";
     char *result;
 
-    pstr = str;
-    result = ft_strdup(pstr);
+    result = ft_strjoin(str1, str2);
 
-    printf("%s\n", result);
+    if (!result)
+        printf("Error en la memoria");
+    else
+        printf("%s\n", result);
 
-    free (result);
     return (0);
 }
