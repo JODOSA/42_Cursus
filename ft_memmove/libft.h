@@ -6,7 +6,7 @@
 /*   By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 18:47:35 by joadomin          #+#    #+#             */
-/*   Updated: 2024/01/06 19:32:37 by joadomin         ###   ########.fr       */
+/*   Updated: 2024/01/06 16:39:33 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ void	*ft_calloc(size_t num_items, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_memmove(void *dest, const void *src, size_t n);
 
 #endif

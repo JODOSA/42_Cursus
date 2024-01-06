@@ -6,7 +6,7 @@
 #    By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/29 12:06:41 by joadomin          #+#    #+#              #
-#    Updated: 2024/01/04 12:24:53 by joadomin         ###   ########.fr        #
+#    Updated: 2024/01/06 19:31:23 by joadomin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRCS =	ft_isalpha.c \
 		ft_calloc.c \
 		ft_strdup.c \
 		ft_substr.c \
+		ft_strjoin.c \
+		ft_memmove.c \
 
 #Convert functions (*.c) to objets (*.o)
 OBJS = $(SRCS:.c=.o)

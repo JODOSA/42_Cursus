@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joadomin <joadomin@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 12:08:15 by joadomin          #+#    #+#             */
-/*   Updated: 2024/01/06 19:39:35 by joadomin         ###   ########.fr       */
+/*   Created: 2024/01/06 19:23:58 by joadomin          #+#    #+#             */
+/*   Updated: 2024/01/06 19:32:54 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*presult;
-	unsigned int	len_s;
-	int		j;
-	int		lon;
+	unsigned char		*pdest;
+	unsigned const char	*psrc;
 
-	lon = len;
-	len_s = ft_strlen(s);
-	if (!s || (!(presult = malloc(len + 1))))
-		return (NULL);
-	if (start > len_s)
-		return (ft_strdup(""));
-	j = 0;
-	while (j < lon)
-	{
-		presult[j] = s[start];
-		start++;
-		j++;
-	}
-	presult[j + 1] = '\0';
-	return (presult);
+	pdest = (unsigned char *)dest;
+	psrc = (unsigned const char *)src;
+	if (dest < src)
+		return (ft_memcpy(dest, src, n));
+	if (!n || dest == src)
+		return (dest);
+	while (n--)
+		pdest[n] = psrc[n];
+	return (dest);
 }
