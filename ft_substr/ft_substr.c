@@ -6,25 +6,25 @@
 /*   By: joadomin <joadomin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 08:25:00 by joadomin          #+#    #+#             */
-/*   Updated: 2024/01/06 12:44:04 by joadomin         ###   ########.fr       */
+/*   Updated: 2024/01/08 08:57:29 by joadomin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "libft.h"
 
 char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
-    //char *psub;
     char *presult;
     int len_s;
     int j;
 
     //len_s = ft_strlen(s);
     len_s = strlen(s);
-    if (!s || (!(presult = malloc(len + 1))))
+    presult = malloc(len + 1);
+    //if (!s || (!(presult = malloc(len + 1))))
+    if (!s || !presult)
         return (NULL);
     
     if (start > len_s)
@@ -38,16 +38,16 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
         start++;
         j++;
     }
-    presult[j+1] = '\0';
+    //presult[j+1] = '\0';
     return (presult);
 }
 
 int main ()
 {
-    char str[] = "lorem ipsu delamore har";
+    char str[] = "hola";
     char *pstr;
 
-    pstr = ft_substr(str, 7, 10);
+    pstr = ft_substr(str, 14294967295, 0);
 
     if (pstr == 0)
         printf("Parámetros incorrectos\n");
